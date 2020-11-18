@@ -2,8 +2,13 @@ const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
 const request = require('request');
+const bodyParser = require('body-parser');
+
 const PORT = process.env.PORT || 5000;
 const app = express();
+
+const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=text';
+let options = {json: true};
 
 
 //MySQL
@@ -35,9 +40,8 @@ function handleDisconnect() {
 handleDisconnect();
 
 
-const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=text';
-let options = {json: true};
 
+app.use(bodyParser.urlencoded({extended: false}));
 
 //WebPages
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
