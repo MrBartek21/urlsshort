@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/mysql', function(request, response) {
-  connection.query('SELECT * from t_users', function(err, rows, fields) {
+  connection.query('SELECT * FROM urls', function(err, rows, fields) {
       if (err) {
         console.log('error: ', err);
         throw err;
