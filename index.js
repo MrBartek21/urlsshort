@@ -23,17 +23,9 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-//One Folder
-app.get('/:folder/:file', (req, res) => {
-  res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file));
-});
+app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
 
-//Two folders
-app.get('/:folder/:folder2/:file', (req, res) => {
-  res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file));
-});
-
-
+app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
 
 app.post('/generate_url/', (req, res) => {
   res.send("generated");
@@ -41,6 +33,7 @@ app.post('/generate_url/', (req, res) => {
   console.log(req.generate_url);
   console.log(req.urlinput);
   console.log(req.body.urlinput);
+  console.log(req.body.generate_url);
   console.log(req.body);
 });
 
