@@ -6,14 +6,14 @@ const app = express();
 //app.use(express.logger());
 
 //mysgl
-/*var connection = mysql.createConnection({
+var connection = mysql.createConnection({
   host     : 'us-cdbr-east-02.cleardb.com',
   user     : 'b5e5dcb1e803f4',
   password : 'a90bd23e',
   database : 'heroku_de162b651ed5bf0'
 });
 
-connection.connect();*/
+connection.connect();
 
 
 
@@ -21,7 +21,7 @@ connection.connect();*/
 app.get('/', (req, res) => {
 	res.send('Hello World!');
 });
-/*
+
 app.get('/mysql', function(request, response) {
   connection.query('SELECT * from t_users', function(err, rows, fields) {
       if (err) {
@@ -30,7 +30,7 @@ app.get('/mysql', function(request, response) {
       }
       response.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
     });
-});*/
+});
 
 
 app.listen(PORT, () => {
