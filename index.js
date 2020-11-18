@@ -36,6 +36,7 @@ app.post('/generate_url/', (req, res) => {
     let data = '';
 
     resp.on('data', (chunk) => { data += chunk; });
+    console.log(data);
     resp.on('end', () => {
       console.log(JSON.parse(data).explanation);
     });
