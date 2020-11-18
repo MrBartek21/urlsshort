@@ -32,3 +32,24 @@ body{
 }
 
 .closebtn:hover{ color: black;}
+
+.bg-red{background-color: #b93731 !important;}
+.bg-lightblue{background-color: #7CC0FF;}
+.bg-lightblue2{background-color: #47b5d2;}
+.bg-darkblue{background-color: #0E5EA9;}
+.bg-lightgrey{background-color: #f1f1f1;}
+.bg-darkkhaki{background-color: #BDB76B;}
+.bg-chinapink{background-color: #DE6FA1;}
+.bg-bole{background-color: #79443B;}
+.bg-violet{background-color: #8F00FF;}
+.bg-darkgreen{background-color: #2B4D59;}
+.bg-greenblue{background-color: #39998E;}
+.bg-yellowwhite{background-color: #FFDC7C;}
+.bg-darkred{background-color: #540000;}
+
+.bg-darkkhaki:hover{background-color: #ACA65A;}
+
+
+.card-curved{border-radius: 5px !important;}
+.card-curved-lg{border-radius: 20px !important;}
+.pointer{cursor: pointer;}

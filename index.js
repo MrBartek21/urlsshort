@@ -19,8 +19,11 @@ connection.connect();
 
 //webpage
 app.get('/', (req, res) => {
-	//res.sendFile('public/index.html');
 	res.sendFile(path.join(__dirname+'/public/index.html'));
+});
+
+app.get('/Graphic', (req, res) => {
+	res.sendFile(path.join(__dirname+'/public/Graphic/Main.css'));
 });
 
 
