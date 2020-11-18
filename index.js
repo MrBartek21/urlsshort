@@ -34,5 +34,5 @@ app.get('/mysql', function(request, response) {
 
 
 app.listen(PORT, () => {
-	console.log("Listening on " + port);
+	console.log("Listening on " + PORT);
 })
