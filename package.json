@@ -1,6 +1,6 @@
 {
   "name": "urlsshort",
-  "version": "0.3.0",
+  "version": "1.3.0",
   "description": "Url Shortener",
   "engines": {
     "node": "12.x"
@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "got": "^11.3.0",
-    "mysql": "^2.18.1",
     "tape": "^4.7.0"
   },
   "repository": {
