@@ -39,6 +39,8 @@ app.post('/generate_url/', (req, res) => {
   res.send("generated");
   console.log("post");
   console.log(req.generate_url);
+  console.log(req.urlinput);
+  console.log(req.body.urlinput);
   console.log(req.body);
 });
 
