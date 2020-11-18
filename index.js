@@ -24,10 +24,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:folder/:file', (req, res) => {
-	console.log(req.params.folder);
+	console.log(req.params);
 	var folder = req.params.folder;
 	var file = req.params.file;
 	res.sendFile(path.join(__dirname+'/public/'+folder+'/'+file));
+});
+
+app.get('/mysql', (req, res) => {
+	res.send("Hello");
+	console.log(req.params);
 });
 
 
