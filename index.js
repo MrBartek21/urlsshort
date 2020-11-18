@@ -18,9 +18,7 @@ connection.connect();
 
 
 //webpage
-//app.use(express.staticProvider(__dirname + '/public'));
 app.get('/', (req, res) => {
-	//res.send('Hello World!');
 	res.sendFile('public/index.html');
 });
 
