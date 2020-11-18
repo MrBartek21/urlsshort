@@ -70,15 +70,12 @@ app.post('/generate_url/', (req, res) => {
         // do something with JSON, using the 'body' variable
         console.log("New Link: "+url+" ShortName:"+body+" Name:"+name);
 
-        connection.connect(function(err) {
-          if (err) throw err;
-          console.log("MySQL Connected!");
+        console.log("MySQL Connected!");
           var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('"+name+"',, '"+url+"', '"+body+"')";
           con.query(sql, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted, ID: " + result.insertId);
           });
-        });
     };
 });
 
