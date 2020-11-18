@@ -50,18 +50,25 @@ app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/pub
 app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
 
 
+let options = {json: true};
+
+
 app.post('/generate_url/', (req, res) => {
   var url = req.body.urlinput;
   res.send("generated");
-  console.log("generated "+url);
+  //console.log("generated "+url);
   console.log(NameGenerator);
 
-  request(NameGenerator, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err); }
+  request(NameGenerator, options, (error, res, body) => {
+    if (error) {
+        return  console.log(error)
+    };
 
-    console.log(body.url);
-    console.log(body.explanation);
-  });
+    if (!error && res.statusCode == 200) {
+        // do something with JSON, using the 'body' variable
+        console.log(body);
+    };
+});
 
 
   /*connection.connect(function(err) {
