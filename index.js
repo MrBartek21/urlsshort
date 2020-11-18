@@ -19,17 +19,16 @@ var connection = mysql.createConnection({
 
 //webpage
 app.get('/', (req, res) => {
-	//res.sendFile(path.join(__dirname+'/public/index.html'));
+	res.sendFile(path.join(__dirname+'/public/index.html'));
 	console.log(req.params);
-	
-	res.sendFile('public/index.html', {root: path.join(__dirname, './')})
 });
 
 app.get('/:folder/:file', (req, res) => {
 	console.log(req.params.folder);
-	res.sendFile(path.join(__dirname+'/public/CSS/.*.css'));
+	var folder = req.params.folder;
+	var file = req.params.file;
+	res.sendFile(path.join(__dirname+'/public/'+folder+'/'+file));
 });
-//app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
 
 /*app.get('/mysql', function(request, response) {
