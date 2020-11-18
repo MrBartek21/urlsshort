@@ -1,17 +1,21 @@
 body{
 	padding-top: 70px;
 	padding-bottom: 70px;
-    background: #27293d;
+    background: #1e3d69;
     color: #9a9a9a;
 	
 	font-family: 'Nunito', sans-serif !important;
 }
 
+.pointer{cursor: pointer;}
+
+.card-curved{border-radius: 5px !important;}
+.card-curved-lg{border-radius: 20px !important;}
+
 .card{
 	padding: 5px;
 	margin-bottom: 20px;
 }
-
 
 .container-footer{
 	margin-left: auto;
@@ -20,18 +24,9 @@ body{
     background-color: #494b5f;
 }
 
-.closebtn{
-	margin-left: 15px;
-	color: white;
-	font-weight: bold;
-	float: right;
-	font-size: 22px;
-	line-height: 20px;
-	cursor: pointer;
-	transition: 0.3s;
-}
 
-.closebtn:hover{ color: black;}
+.bg-nav{background-color: #c83e6a !important;}
+
 
 .bg-red{background-color: #b93731 !important;}
 .bg-lightblue{background-color: #7CC0FF;}
@@ -48,6 +43,3 @@ body{
 .bg-darkred{background-color: #540000;}
 
 
-.card-curved{border-radius: 5px !important;}
-.card-curved-lg{border-radius: 20px !important;}
-.pointer{cursor: pointer;}
