@@ -13,21 +13,21 @@ var connection = mysql.createConnection({
   database : 'heroku_de162b651ed5bf0'
 });
 
-connection.connect();
+//connection.connect();
 
 
 
 //webpage
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
-	console.log(req);
+	console.log(req.params);
 });
 
 app.get('/CSS/.*.css', (req, res) => { res.sendFile(path.join(__dirname+'/public/CSS/.*.css')); });
 app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
 
-app.get('/mysql', function(request, response) {
+/*app.get('/mysql', function(request, response) {
   connection.query('SELECT * FROM urls', function(err, rows, fields) {
       if (err) {
         console.log('error: ', err);
@@ -35,7 +35,7 @@ app.get('/mysql', function(request, response) {
       }
       response.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
     });
-});
+});*/
 
 
 app.listen(PORT, () => {
