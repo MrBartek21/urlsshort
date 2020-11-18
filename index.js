@@ -56,9 +56,10 @@ let options = {json: true};
 
 app.post('/generate_url/', (req, res) => {
   var url = req.body.urlinput;
+  var name= "Test";
   res.send("generated");
   //console.log("generated "+url);
-  console.log(NameGenerator);
+  //console.log(NameGenerator);
 
   request(NameGenerator, options, (error, res, body) => {
     if (error) {
@@ -67,24 +68,20 @@ app.post('/generate_url/', (req, res) => {
 
     if (!error && res.statusCode == 200) {
         // do something with JSON, using the 'body' variable
-        console.log(body);
+        console.log("New Link: "+url+" ShortName:"+body+" Name:"+name);
+
+        connection.connect(function(err) {
+          if (err) throw err;
+          console.log("MySQL Connected!");
+          var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('"+name+"',, '"+url+"', '"+body+"')";
+          con.query(sql, function (err, result) {
+            if (err) throw err;
+            console.log("1 record inserted, ID: " + result.insertId);
+          });
+        });
     };
 });
 
-
-  /*connection.connect(function(err) {
-    if (err) throw err;
-    console.log("MySQL Connected!");
-
-    var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('Test', '"+url+"', '"+shortname+"')";
-
-    con.query(sql, function (err, result) {
-      if (err) throw err;
-      console.log("1 record inserted, ID: " + result.insertId);
-    });
-
-
-  });*/
 
   /*connection.query('SELECT * FROM urls', function(err, rows, fields) {
     if (err) {
