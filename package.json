@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "got": "^11.3.0",
-
+    "mysql": "^2.18.1",
     "tape": "^4.7.0"
   },
   "repository": {
