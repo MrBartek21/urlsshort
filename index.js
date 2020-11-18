@@ -29,8 +29,8 @@ app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirn
 app.post('/generate_url/', (req, res) => {
   res.send("generated");
   console.log("post");
-  console.log(req);
-  console.log(res);
+  console.log(req.generate_url);
+  console.log(req.urlinput);
 });
 
 
