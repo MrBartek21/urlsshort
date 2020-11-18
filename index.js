@@ -22,7 +22,7 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-app.get('/CSS/*.css', (req, res) => { res.sendFile(path.join(__dirname+'/public/CSS/*.css')); });
+app.get('/CSS/*.css', (req, res) => { res.send(path.join(__dirname+'/public/CSS/*.css')); });
 app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
 
