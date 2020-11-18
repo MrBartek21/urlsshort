@@ -20,6 +20,7 @@ connection.connect();
 //webpage
 app.get('/', (req, res) => {
 	//res.send('Hello World!');
+	res.set('view engine', 'ejs')
 	res.render('index.html');
 });
 
