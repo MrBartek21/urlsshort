@@ -15,10 +15,6 @@
     "express": "^4.15.2",
 	"mysql": "^2.18.1"
   },
-  "devDependencies": {
-    "got": "^11.3.0",
-    "tape": "^4.7.0"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MrBartek21/urlsshort.git"
