@@ -26,8 +26,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/:folder/:file', (req, res) => {
-	console.log(req.params);
-	//res.sendFile(path.join(__dirname+'/public/CSS/.*.css'));
+	console.log(req.params.folder);
+	res.sendFile(path.join(__dirname+'/public/CSS/.*.css'));
 });
 //app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
