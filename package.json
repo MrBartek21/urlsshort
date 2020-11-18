@@ -1,7 +1,7 @@
 {
   "name": "urlsshort",
   "version": "0.3.0",
-  "description": "",
+  "description": "Url Shortener",
   "engines": {
     "node": "12.x"
   },
