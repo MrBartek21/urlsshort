@@ -22,8 +22,8 @@ app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
-app.get('/Graphic', (req, res) => {
-	res.sendFile(path.join(__dirname+'/public/Graphic/Main.css'));
+app.get('/CSS/*.css', (req, res) => {
+	res.sendFile(path.join(__dirname+'/public/CSS/*.css'));
 });
 
 
