@@ -7,23 +7,44 @@ const request = require('request');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
-//app.use(express.logger());
 
-//mysgl
-var ConnectMySql = mysql.createConnection({
-  host     : 'us-cdbr-east-02.cleardb.com',
-  user     : 'b5e5dcb1e803f4',
-  password : 'a90bd23e',
-  database : 'heroku_de162b651ed5bf0'
-});
 
-ConnectMySql.connect();
+//MySQL
+var db_config = {
+  host: 'us-cdbr-east-02.cleardb.com',
+    user: 'b5e5dcb1e803f4',
+    password: 'a90bd23e',
+    database: 'heroku_de162b651ed5bf0'
+};
+
+var connection;
+
+function handleDisconnect() {
+  connection = mysql.createConnection(db_config);
+  connection.connect(function(err) {
+    if(err) {
+      console.log('error when connecting to db:', err);
+      setTimeout(handleDisconnect, 2000);
+    }
+  });
+  connection.on('error', function(err) {
+    console.log('db error', err);
+    if(err.code === 'PROTOCOL_CONNECTION_LOST') {
+      handleDisconnect();
+    } else {
+      throw err;
+    }
+  });
+}
+handleDisconnect();
+
+
 
 const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=json';
 
 app.use(bodyParser.urlencoded({extended: false}));
 
-//webpage
+//WebPages
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
 app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
 app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
@@ -38,14 +59,12 @@ app.post('/generate_url/', (req, res) => {
   request(NameGenerator, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
 
-    console.log(res);
-    console.log(body);
     console.log(body.url);
     console.log(body.explanation);
   });
 
 
-  /*ConnectMySql.connect(function(err) {
+  /*connection.connect(function(err) {
     if (err) throw err;
     console.log("MySQL Connected!");
 
