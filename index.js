@@ -1,5 +1,5 @@
 const express = require('express');
-//const path = require('path');
+const path = require('path');
 const mysql = require('mysql');
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -19,7 +19,8 @@ connection.connect();
 
 //webpage
 app.get('/', (req, res) => {
-	res.sendFile('public/index.html');
+	//res.sendFile('public/index.html');
+	res.sendFile(path.join(__dirname+'/public/index.html'));
 });
 
 
