@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
 	res.sendFile('public/index.html', {root: path.join(__dirname, './')})
 });
 
-app.get('/CSS/:file', (req, res) => {
+app.get('/:folder/:file', (req, res) => {
 	console.log(req.params);
-	res.sendFile(path.join(__dirname+'/public/CSS/.*.css'));
+	//res.sendFile(path.join(__dirname+'/public/CSS/.*.css'));
 });
 //app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
