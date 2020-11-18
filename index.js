@@ -18,10 +18,10 @@ connection.connect();
 
 
 //webpage
-app.set('view engine', 'ejs');
+app.use(express.staticProvider(__dirname + '/public'));
 app.get('/', (req, res) => {
 	//res.send('Hello World!');
-	res.render('index.html');
+	res.render('index');
 });
 
 
