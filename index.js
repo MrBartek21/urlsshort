@@ -28,6 +28,11 @@ app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirn
 
 app.post('/generate_url/', (req, res) => {
   res.send("generated");
+  console.log("post");
+});
+
+app.get('/generate_url/', (req, res) => {
+  console.log("get");
 });
 
 
