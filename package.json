@@ -1,6 +1,6 @@
 {
   "name": "urlsshort",
-  "version": "0.3.0",
+  "version": "1.0.0",
   "description": "",
   "engines": {
     "node": "12.x"
@@ -13,7 +13,7 @@
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.2",
-	"mysql": "^2.18.1"
+    "mysql": "^2.18.1"
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "node",
     "heroku",
     "express",
-	"mysql"
+    "mysql"
   ],
   "license": "ISC"
 }
