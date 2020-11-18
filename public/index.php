@@ -29,11 +29,11 @@
         <meta name="description" content="<?php echo $Description_Index;?>"/>
 		
 		<!-- Bootstrap core CSS -->
-		<link href="public/Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+		<link href="Vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 		
 		<!-- Custom styles for this template -->
-		<link href="public/CSS/Main.css" rel="stylesheet">
-		<link href="public/CSS/Colors.css" rel="stylesheet">
+		<link href="CSS/Main.css" rel="stylesheet">
+		<link href="CSS/Colors.css" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -44,7 +44,7 @@
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-red fixed-top">
 			<div class="container">
-				<a class="navbar-brand" href="<?php echo $Link_Index;?>"><IMG src="public/Graphic/Menu.png" class="d-inline-block mr-sm-1 align-bottom" width="30" height="30" alt="Menu"> <?php echo $Title_Index;?></a>
+				<a class="navbar-brand" href="<?php echo $Link_Index;?>"><IMG src="Graphic/Menu.png" class="d-inline-block mr-sm-1 align-bottom" width="30" height="30" alt="Menu"> <?php echo $Title_Index;?></a>
 				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
 				</button>
@@ -97,7 +97,7 @@
 		</footer>
 
 		<!-- Bootstrap core JavaScript -->
-		<script src="public/Vendor/jquery/jquery.min.js"></script>
-		<script src="public/Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="Vendor/jquery/jquery.min.js"></script>
+		<script src="Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 	</body>
 </html>
