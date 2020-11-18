@@ -3,7 +3,7 @@ const express = require('express');
 const mysql = require('mysql');
 const PORT = process.env.PORT || 5000;
 const app = express();
-//app.use(express.logger());
+app.use(express.logger());
 
 //mysgl
 /*var connection = mysql.createConnection({
