@@ -24,20 +24,20 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-		<meta name="author" content="<?php echo $Author;?>"/>
-        <meta name="keywords" content="<?php echo $Keywords;?>" />
-        <meta name="description" content="<?php echo $Description_Index;?>"/>
+		<meta name="author" content="MrBartek21"/>
+        <meta name="keywords" content="url, short, shortener, urls, friendly, link"/>
+        <meta name="description" content="Url shortener"/>
 		
 		<!-- Bootstrap core CSS -->
 		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-CuOF+2SnTUfTwSZjCXf01h7uYhfOBuxIhGKPbfEJ3+FqH/s6cIFN9bGr1HmAg4fQ" crossorigin="anonymous">
 		
-		<!-- Custom styles for this template -->
+		<!-- Custom styles -->
 		<link href="CSS/Main.css" rel="stylesheet">
 		
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 		<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
         
-        <title><?php echo $Lang_MainPage.' - '.$Title_Index;?></title>
+        <title>Url Shortener</title>
 	</head>
 	<body>
 		<!-- Navigation -->
@@ -49,15 +49,9 @@
 				</button>
 				<div class="collapse navbar-collapse" id="navbarResponsive">
 					<ul class="navbar-nav ml-auto">
-						<?php
-							Menu("index", $Lang);
-							
-							//echo '<li class="nav-item"><a class="nav-link btn btn-warning mr-2 text-dark" href="profil">'.$UserName.'</a><IMG src="'.$UserAvatar.'" class="d-inline-block mr-sm-1 align-bottom rounded-circle" width="40" height="40" alt=""></li>';
-							
-							
-							if($_SESSION['CG_Logged']) echo '<li class="nav-item"><a class="nav-link btn btn-warning mr-2 text-dark navbar-brand" href="profil"><img src="'.$UserAvatar.'" width="30" height="30" class="d-inline-block align-top rounded-circle" alt=""> '.$UserName.'</a></li>';
-							else echo '<li class="nav-item"><a class="nav-link btn btn-warning mr-2 text-dark" href="account">'.$Lang_Login.'</a></li>';
-						?>
+						
+						<li class="nav-item"><a class="nav-link btn btn-warning mr-2 text-dark navbar-brand" href="profil"><img src="'.$UserAvatar.'" width="30" height="30" class="d-inline-block align-top rounded-circle" alt=""> '.$UserName.'</a></li>
+						<li class="nav-item"><a class="nav-link btn btn-warning mr-2 text-dark" href="account">'.$Lang_Login.'</a></li>
 					</ul>
 				</div>
 			</div>
@@ -71,13 +65,13 @@
     				    <div class="col-12">
         					<div class="card text-white bg-dark">
                 				<div class="card-body">
-                					<p class="card-title text-center"><h3><?php GetPost($Connect_CG, $Lang, 'Title');?></h3></p>
-                					<p class="card-text"><?php GetPost($Connect_CG, $Lang, 'Desc');?></p><hr />
-                					<p class="card-text"><font size="-1"><?php GetPost($Connect_CG, $Lang, 'Date');?></font></p>
+                					<p class="card-title text-center"><h3> GetPost($Connect_CG, $Lang, 'Title');</h3></p>
+                					<p class="card-text">GetPost($Connect_CG, $Lang, 'Desc');?></p><hr />
+                					<p class="card-text"><font size="-1"> GetPost($Connect_CG, $Lang, 'Date');</font></p>
                 				</div>
                 			</div>
             			</div>
-    					<?php GetGame($Connect_CG, $Lang);?>
+    					GetGame($Connect_CG, $Lang);
 					</div>
 					<!-- /.row -->
 				</div>
@@ -90,10 +84,12 @@
 		<!-- Footer -->
 		<footer class="py-2 bg-dark navbar-fixed-bottom fixed-bottom">
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright &copy; <a href="<?php echo $Link_Index;?>"><?php echo $Title_Index;?></a> <?php echo date('Y');?></p>
+				<p class="m-0 text-center text-white">Copyright &copy; <a href="https://cloudpanel.sytes.net">CloudPanel</a> <?php echo date('Y');?></p>
 			</div>
 		</footer>
-
+			</div>
+		</footer>
+		
 		<!-- Bootstrap core JavaScript -->
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha3/dist/js/bootstrap.min.js" integrity="sha384-t6I8D5dJmMXjCsRLhSzCltuhNZg6P10kE0m0nAncLUjH6GeYLhRU1zfLoW3QNQDF" crossorigin="anonymous"></script>

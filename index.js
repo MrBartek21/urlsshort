@@ -32,7 +32,6 @@ app.get('/:folder/:file', (req, res) => {
 
 app.get('/mysql', (req, res) => {
 	res.send("Hello");
-	console.log(req.params);
 });
 
 
