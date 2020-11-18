@@ -44,7 +44,7 @@ app.post('/generate_url/', (req, res) => {
   });
 
 
-  ConnectMySql.connect(function(err) {
+  /*ConnectMySql.connect(function(err) {
     if (err) throw err;
     console.log("MySQL Connected!");
 
@@ -56,7 +56,7 @@ app.post('/generate_url/', (req, res) => {
     });
 
 
-  });
+  });*/
 
   /*connection.query('SELECT * FROM urls', function(err, rows, fields) {
     if (err) {
