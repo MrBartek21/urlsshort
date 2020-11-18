@@ -3,7 +3,7 @@ const path = require('path');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const https = require('https');
+const http = require('http');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -32,7 +32,7 @@ app.post('/generate_url/', (req, res) => {
   res.send("generated");
   console.log("generated "+url);
 
-  https.get('http://names.drycodes.com/1?nameOptions=funnyWords&format=json', (resp) => {
+  http.get('http://names.drycodes.com/1?nameOptions=funnyWords&format=json', (resp) => {
     let data = '';
 
     resp.on('data', (chunk) => { data += chunk; });
