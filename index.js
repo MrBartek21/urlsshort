@@ -20,6 +20,7 @@ connection.connect();
 //webpage
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
+	console.log(req);
 });
 
 app.get('/CSS/.*.css', (req, res) => { res.sendFile(path.join(__dirname+'/public/CSS/.*.css')); });
