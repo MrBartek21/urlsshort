@@ -20,7 +20,7 @@ connection.connect();*/
 //webpage
 app.get('/', (req, res) => {
 	res.send('Hello World!');
-})
+});
 /*
 app.get('/mysql', function(request, response) {
   connection.query('SELECT * from t_users', function(err, rows, fields) {
@@ -35,4 +35,4 @@ app.get('/mysql', function(request, response) {
 
 app.listen(PORT, () => {
 	console.log("Listening on " + PORT);
-})
+});
