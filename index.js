@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
 const PORT = process.env.PORT || 5000;
 const app = express();
 //app.use(express.logger());
@@ -15,16 +16,24 @@ var connection = mysql.createConnection({
 
 //connection.connect();
 
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 //webpage
 app.get('/', (req, res) => {
 	res.sendFile(path.join(__dirname+'/public/index.html'));
-	console.log(req.params);
 });
 
-app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
-app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
+//One Folder
+app.get('/:folder/:file', (req, res) => {
+  res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file));
+});
+
+//Two folders
+app.get('/:folder/:folder2/:file', (req, res) => {
+  res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file));
+});
+
+
 
 app.post('/generate_url/', (req, res) => {
   res.send("generated");
