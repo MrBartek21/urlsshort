@@ -23,8 +23,8 @@ app.get('/', (req, res) => {
 	console.log(req.params);
 });
 
-app.get('/CSS/.*.css', (req, res) => { res.sendFile(path.join(__dirname+'/public/CSS/.*.css')); });
-app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
+//app.get('/CSS/.*.css', (req, res) => { res.sendFile(path.join(__dirname+'/public/CSS/.*.css')); });
+//app.get('/Graphic/*', (req, res) => { res.sendFile(path.join(__dirname+'/public/Grarphic/*')); });
 
 
 /*app.get('/mysql', function(request, response) {
