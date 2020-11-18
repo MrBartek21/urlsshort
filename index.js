@@ -1,7 +1,7 @@
 const express = require('express');
 //const path = require('path');
 //const mysql = require('mysql');
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT || 5000;
 const app = express();
 //app.use(express.logger());
 
@@ -19,7 +19,7 @@ connection.connect();*/
 
 //webpage
 app.get('/', (req, res) => {
-	res.send('Hello World!')
+	res.send('Hello World!');
 })
 /*
 app.get('/mysql', function(request, response) {
