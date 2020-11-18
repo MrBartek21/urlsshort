@@ -3,7 +3,7 @@ const path = require('path');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
 
-const http = require('http');
+const request = require('request');
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -19,6 +19,8 @@ var ConnectMySql = mysql.createConnection({
 
 ConnectMySql.connect();
 
+const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=json';
+
 app.use(bodyParser.urlencoded({extended: false}));
 
 //webpage
@@ -32,16 +34,10 @@ app.post('/generate_url/', (req, res) => {
   res.send("generated");
   console.log("generated "+url);
 
-  http.get('http://names.drycodes.com/1?nameOptions=funnyWords&format=json', (resp) => {
-    let data = '';
-
-    resp.on('data', (chunk) => { data += chunk; });
-    console.log(data);
-    resp.on('end', () => {
-      console.log(JSON.parse(data).explanation);
-    });
-  }).on("error", (err) => {
-    console.log("Error: " + err.message);
+  request(NameGenerator, { json: true }, (err, res, body) => {
+    if (err) { return console.log(err); }
+    console.log(body.url);
+    console.log(body.explanation);
   });
 
 
