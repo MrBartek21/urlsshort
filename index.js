@@ -41,7 +41,7 @@ handleDisconnect();
 
 
 //const NameGenerator = 'https://namey.muffinlabs.com/name.json';
-const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=json';
+const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=text';
 
 app.use(bodyParser.urlencoded({extended: false}));
 
