@@ -23,12 +23,8 @@ app.get('/', (req, res) => {
 	console.log(req.params);
 });
 
-app.get('/:folder/:file', (req, res) => {
-	console.log(req.params);
-	var folder = req.params.folder;
-	var file = req.params.file;
-	res.sendFile(path.join(__dirname+'/public/'+folder+'/'+file));
-});
+app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
+app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
 
 app.get('/mysql', (req, res) => {
 	res.send("Hello");
