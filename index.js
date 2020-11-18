@@ -20,7 +20,7 @@ connection.connect();
 //webpage
 app.get('/', (req, res) => {
 	//res.send('Hello World!');
-	res.render('index.html'))
+	res.render('index.html'));
 });
 
 
