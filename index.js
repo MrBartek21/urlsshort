@@ -72,7 +72,7 @@ app.post('/generate_url/', (req, res) => {
 
         console.log("MySQL Connected!");
           var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('"+name+"',, '"+url+"', '"+body+"')";
-          con.query(sql, function (err, result) {
+          connection.query(sql, function (err, result) {
             if (err) throw err;
             console.log("1 record inserted, ID: " + result.insertId);
           });
