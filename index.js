@@ -1,10 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mysql = require('mysql');
-const bodyParser = require('body-parser');
-
 const request = require('request');
-
 const PORT = process.env.PORT || 5000;
 const app = express();
 
@@ -18,7 +15,6 @@ var db_config = {
 };
 
 var connection;
-
 function handleDisconnect() {
   connection = mysql.createConnection(db_config);
   connection.connect(function(err) {
@@ -39,43 +35,30 @@ function handleDisconnect() {
 handleDisconnect();
 
 
-
-//const NameGenerator = 'https://namey.muffinlabs.com/name.json';
 const NameGenerator = 'http://names.drycodes.com/1?nameOptions=funnyWords&format=text';
+let options = {json: true};
 
-app.use(bodyParser.urlencoded({extended: false}));
 
 //WebPages
 app.get('/', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
+app.get('/index.html', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
 app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
 app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
-
-
-let options = {json: true};
-
 
 app.post('/generate_url/', (req, res) => {
   var url = req.body.urlinput;
   var name= "Test";
-  res.send("generated");
-  //console.log("generated "+url);
-  //console.log(NameGenerator);
+  res.send('<script>location.replace("index.html")</script>');
 
   request(NameGenerator, options, (error, res, body) => {
-    if (error) {
-        return  console.log(error)
-    };
-
+    if (error) { return  console.log(error) };
     if (!error && res.statusCode == 200) {
-        // do something with JSON, using the 'body' variable
-        console.log("New Link: "+url+" ShortName:"+body+" Name:"+name);
-
-        console.log("MySQL Connected!");
-          var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('"+name+"', '"+url+"', '"+body+"')";
-          connection.query(sql, function (err, result) {
-            if (err) throw err;
-            console.log("1 record inserted, ID: " + result.insertId);
-          });
+        console.log("New Link: "+url+" | ShortName: "+body+" | Name: "+name);
+        var sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('"+name+"', '"+url+"', '"+body+"')";
+        connection.query(sql, function (err, result) {
+          if (err) throw err;
+          console.log("1 record inserted, ID: " + result.insertId);
+        });
     };
 });
 
