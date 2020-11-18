@@ -49,7 +49,7 @@ app.get('/index.html', (req, res) => { res.sendFile(path.join(__dirname+'/public
 app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
 app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
 
-app.post('/generate_url/', (req, res) => {
+app.post('/generate_url', (req, res) => {
   var url = req.body.urlinput;
   var name= "Test";
   res.send('<script>location.replace("index.html")</script>');
