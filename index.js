@@ -33,9 +33,13 @@ app.post('/generate_url/', (req, res) => {
   var url = req.body.urlinput;
   res.send("generated");
   console.log("generated "+url);
+  console.log(NameGenerator);
 
   request(NameGenerator, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
+
+    console.log(res);
+    console.log(body);
     console.log(body.url);
     console.log(body.explanation);
   });
