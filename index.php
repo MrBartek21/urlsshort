@@ -4,7 +4,16 @@
 	//Definiowanie zmiennych sesyjnych
     define('SESSION_COOKIE','URLS');
     define('SESSION_ID_LENGHT',40);
-    define('SESSION_COOKIE_EXPIRE',43200);
+	define('SESSION_COOKIE_EXPIRE',43200);
+	
+	$Host = "us-cdbr-east-02.cleardb.com";
+	$DB_User = "b5e5dcb1e803f4";
+	$DB_Password = "a90bd23e";
+	$DB_Name = "heroku_de162b651ed5bf0";
+
+	$Connect = @new mysqli($Host, $DB_User, $DB_Password, $DB_Name_CG);
+    $Connect->set_charset("utf-8");
+
 	
 	$Author = "MrBartek21";
 	$Keywords = "url, short, shortener, urls, friendly, link";
@@ -16,11 +25,16 @@
 	$Title_Footer = "CloudPanel";
 	
 	print_r($_POST);
-	print_r($_GET);
+	//print_r($_GET);
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
-		echo $url;
+		$Name = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+		
+		$sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')";
+		
+		//$Connect_BS->query("UPDATE livegames SET ShipsP2='$Ships', ShipsP22='$Ships2' WHERE Code='$Code'");
+		echo $Name;
 	}
 ?>
 
