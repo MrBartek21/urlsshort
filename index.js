@@ -44,7 +44,7 @@ handleDisconnect();
 app.use(bodyParser.urlencoded({extended: false}));
 
 //WebPages
-app.get('/:test*', (req, res) => {
+app.get(':test', (req, res) => {
   console.log(req.params.test);
   res.sendFile(path.join(__dirname+'/public/index.html'));
 });
