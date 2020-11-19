@@ -17,11 +17,17 @@
 		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
 		$Name = 'das';
 		
-		$sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')";
-		$Connect->query($sql);
+		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
+	}
 
+	if(isset($_GET['url']) && !empty($_GET['url'])){
+		$url = $_GET['url'];
 
-		//echo $Name;
+		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$url'");
+   		$row = $result->fetch_assoc();
+		$Link = $row['Link'];
+
+		header('Location: '.$Link);
 	}
 ?>
 
