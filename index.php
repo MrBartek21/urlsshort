@@ -44,7 +44,7 @@
 	}
 
 	if(isset($_GET['l']) && !empty($_GET['l'])){
-		$url = $_GET['url'];
+		$url = $_GET['l'];
 
 		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE Link='$url'");
 		$Count = $result->num_rows;
