@@ -17,13 +17,13 @@
 		$Count = $result->num_rows;
 
 		if($Count==0) return $ShortName;
-		else CheckName($Connect)
+		else CheckName($Connect);
 	}
 	
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
-		$ShortName = CheckName($Connect)
+		$ShortName = CheckName($Connect);
 		$Name = 'das';
 
 		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
