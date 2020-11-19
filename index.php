@@ -17,6 +17,11 @@
 	
 	print_r($_POST);
 	print_r($_GET);
+	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
+		$url = $_POST['urlinput'];
+
+		echo $url;
+	}
 ?>
 
 
