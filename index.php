@@ -157,8 +157,10 @@
 				document.execCommand("copy");
 				console.log(document.execCommand("copy"));
 
-				document.execCommand("copy", false, copyText.value);
-				console.log(document.execCommand("copy", false, copyText.value));
+				document.execCommand("copy", true, copyText.value);
+				document.execCommand("copy", true);
+				document.execCommand("copy");
+				console.log(document.execCommand("copy", true, copyText.value));
 				
 
 				console.log(document.queryCommandSupported('copy'));
