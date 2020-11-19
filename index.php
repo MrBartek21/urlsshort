@@ -25,8 +25,9 @@
 		$Link = "https://".$_SERVER['SERVER_NAME'];
 		$Link = $Link.'/?url='.$ShortName;
 
-		$GeneratedLink = '<hr /><p class="card-text">The generated link is: </p>';
-		$GeneratedLink = '<form>
+		$GeneratedLink = '<hr />
+			<p class="card-text">The generated link is: </p>
+			<form>
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
 					<span class="input-group-btn">
