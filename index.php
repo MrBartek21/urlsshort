@@ -8,26 +8,42 @@
 	
 	require_once("Resources/Connect.php");
 	require_once("Resources/Settings.php");
+
+
+	function CheckName($Connect){
+		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+
+		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$ShortName'");
+		$Count = $result->num_rows;
+
+		if($Count==0) return $ShortName;
+		else CheckName($Connect)
+	}
 	
-	//print_r($_POST);
-	print_r($_GET);
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
-		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+		$ShortName = CheckName($Connect)
 		$Name = 'das';
-		
+
 		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
+
+		$Link = "https://".$_SERVER['SERVER_NAME'];
+		$Link = $Link.'/?url='.$ShortName;
+
+		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>'
 	}
 
 	if(isset($_GET['url']) && !empty($_GET['url'])){
 		$url = $_GET['url'];
 
 		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$url'");
+		$Count = $result->num_rows;
    		$row = $result->fetch_assoc();
 		$Link = $row['Link'];
 
-		header('Location: '.$Link);
+		if($Count>0) header('Location: '.$Link);
+		else $Error = 'NotFound';
 	}
 ?>
 
@@ -95,9 +111,9 @@
 										  	<input type="text" class="form-control" id="urlinput" name="urlinput"  style="margin-bottom: 20px; width: 100% !important;">
 										</div>
 										<button type="submit" class="btn btn-primary btn-block">Generate</button>
-									</form><hr />
+									</form>
 
-                					<p class="card-text">The generated link is: <a href="https://urlsshort.herokuapp.com/url/f456d" class="">https://urlsshort.herokuapp.com/url/f456d</a></p>
+                					<?php echo $GeneratedLink;?>
                 				</div>
                 			</div>
             			</div>
