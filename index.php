@@ -159,6 +159,9 @@
 
 				document.execCommand("copy", false, copyText.value);
 				console.log(document.execCommand("copy", false, copyText.value));
+				
+
+				console.log(document.queryCommandSupported('copy'));
 
 
 				console.log(copyText.value);
