@@ -112,14 +112,14 @@
 				<div class="col-lg-12">
 					<div class="row">
     				    <div class="col-12">
-        					<div class="card text-dark bg-card-yellow">
+        					<div class="card text-white bg-card">
                 				<div class="card-body text-center">								
 									<form action="#" method="post">
 										<div class="form-group">
 										  	<label for="urlinput"><h2>Enter the link to shorten</h2></label>
-										  	<input type="text" class="form-control" id="urlinput" name="urlinput"  style="margin-bottom: 20px; width: 100% !important;">
+										  	<input type="text" class="form-control" id="urlinput" name="urlinput" placeholder="Provide a link to shorten" style="margin-bottom: 20px; width: 100% !important;">
 										</div>
-										<button type="submit" class="btn btn-primary btn-block">Generate</button>
+										<button type="submit" class="btn btn-success btn-block">Generate</button>
 									</form>
 
 									<?php
