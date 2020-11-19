@@ -12,6 +12,7 @@
 
 	$GeneratedLink = '';
 	$Error = '';
+	$Admin = '';
 
 	$LinkIndex = "https://".$_SERVER['SERVER_NAME'];
 	$LinkIToUrl = $LinkIndex.'/?l=';
@@ -153,7 +154,7 @@
 									<form action="#" method="post">
 										<div class="form-group">
 										  	<label for="urlinput"><h2>Enter the link to shorten</h2></label>
-										  	<input type="text" class="form-control" id="urlinput" name="urlinput" placeholder="Provide a link to shorten" style="margin-bottom: 20px; width: 100% !important;">
+										  	<input type="text" class="form-control" id="urlinput" name="urlinput" placeholder="Provide a link to shorten:" style="margin-bottom: 20px; width: 100% !important;">
 										</div>
 										<button type="submit" class="btn btn-success btn-block">Generate</button>
 									</form>
