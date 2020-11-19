@@ -29,7 +29,7 @@
 			<p class="card-text">The generated link is: </p>
 			<form>
 				<div class="input-group">
-					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
+					<input type="text" class="form-control" value="'.$Link.'" id="copy-input" disabled>
 					<span class="input-group-btn tooltip">
 						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
 							<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
@@ -153,7 +153,7 @@
 			function Copy(){
 				var copyText = document.getElementById("copy-input");
 				copyText.select();
-				copyText.setSelectionRange(0, 99999)
+				//copyText.setSelectionRange(0, 99999)
 				document.execCommand("copy");
 				console.log(copyText.value);
 				alert("Copied the text: " + copyText.value);
