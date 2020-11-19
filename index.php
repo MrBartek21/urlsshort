@@ -9,6 +9,8 @@
 	require_once("Resources/Connect.php");
 	require_once("Resources/Settings.php");
 
+	$GeneratedLink = '';
+
 
 	function CheckName($Connect){
 		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
