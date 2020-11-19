@@ -31,11 +31,15 @@
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
 					<span class="input-group-btn">
-						<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" onClick="Copy()">Copy to Clipboard</a>
+						<a tabindex="0" class="btn btn-lg btn-success " role="button" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
+							<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+							Copy to Clipboard
+						</a>
 					</span>
 				</div>
 			</form>	';
 
+		//<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
 		//unset($_POST);
 	}
 
@@ -96,6 +100,45 @@
 		<title><?php echo $MainPage.' - '.$Title_Index;?></title>
 	</head>
 	<body>
+	<style>
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 140px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 150%;
+  left: 50%;
+  margin-left: -75px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
 		<!-- Navigation -->
 		<nav class="navbar navbar-expand-lg navbar-dark bg-nav fixed-top">
 			<div class="container">
@@ -153,11 +196,19 @@
 				document.execCommand("copy");
 				console.log(copyText.value);
 				//alert("Copied the text: " + copyText.value);
+
+				var tooltip = document.getElementById("myTooltip");
+  				tooltip.innerHTML = "Copied: " + copyText.value;
 			}
 
-			jQuery(function () {
+			function outFunc() {
+				var tooltip = document.getElementById("myTooltip");
+				tooltip.innerHTML = "Copy to clipboard";
+			}
+
+			/*jQuery(function () {
 				jQuery('[data-toggle="popover"]').popover()
-			});
+			});*/
 		</script>
 	</body>
 </html>
