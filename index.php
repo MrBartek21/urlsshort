@@ -21,7 +21,7 @@
 		$url = $_POST['urlinput'];
 
 		$Name = CheckName($Connect);
-		$ShortName = GenerateCode($Connect);
+		$Link = GenerateCode($Connect);
 
 		$Connect->query("INSERT INTO urls (Name, Url, Link) VALUES ('$Name', '$url', '$Link')");
 

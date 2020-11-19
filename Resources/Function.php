@@ -1,11 +1,11 @@
 <?php
     function CheckName($Connect){
-		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+		$Name = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
 
-		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$ShortName'");
+		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE Name='$Name'");
 		$Count = $result->num_rows;
 
-		if($Count==0) return $ShortName;
+		if($Count==0) return $Name;
 		else CheckName($Connect);
 	}
 
@@ -17,7 +17,7 @@
                 $code .= $tab[array_rand($tab)];
 			}
 			
-            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM urls WHERE ShortName='$code'");
+            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM urls WHERE Link='$code'");
             $count = $count->fetch_assoc();
             $count = $count['COUNT(*)'];
             if($count == 0) break;
