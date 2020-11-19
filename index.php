@@ -25,7 +25,7 @@
 		$Link = $Link.'/?url='.$ShortName;
 
 		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
-		$GeneratedLink = '<hr /><a class="btn btn-primary" href="'.$Link.'" role="button">'.$Link.'</a>';
+		$GeneratedLink = '<hr /><a class="btn btn-success btn-block btn-large" href="'.$Link.'" role="button">'.$Link.'</a>';
 		unset($_POST);
 	}
 
