@@ -30,12 +30,12 @@
 			<form>
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" id="copy-input" disabled>
-					<span class="input-group-btn tooltip">
+					<!--<span class="input-group-btn tooltip">
 						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
-						<!--<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>-->
+						<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
 							Copy
 						</a>
-					</span>
+					</span>-->
 				</div>
 			</form>	';
 
