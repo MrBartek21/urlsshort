@@ -12,6 +12,9 @@
 
 	$GeneratedLink = '';
 	$Error = '';
+
+	$LinkIndex = "https://".$_SERVER['SERVER_NAME'];
+	$LinkIToUrl = $LinkIndex.'/?l=';
 	
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
@@ -21,16 +24,15 @@
 
 		$Connect->query("INSERT INTO urls (Name, Url, Link) VALUES ('$Name', '$url', '$Link')");
 
-		$LinkIndex = "https://".$_SERVER['SERVER_NAME'];
-		$LinkIndex = $LinkIndex.'/?l='.$Link;
-
+		$LinkIToUrl .= $Link;
+		
 		$GeneratedLink = '<hr />
 			<p class="card-text">The generated link is: </p>
 			<form>
 				<div class="input-group">
-					<input type="text" class="form-control" value="'.$LinkIndex.'" id="copy-input" disabled>
+					<input type="text" class="form-control" value="'.$LinkIToUrl.'" id="copy-input" disabled>
 					<!--<span class="input-group-btn tooltip">
-						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$LinkIndex.'" onClick="Copy()" onmouseout="outFunc()">
+						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$LinkIToUrl.'" onClick="Copy()" onmouseout="outFunc()">
 						<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
 							Copy
 						</a>
@@ -69,11 +71,11 @@
 					<th scope="row">'.$ID.'</th>
 					<td>'.$Name.'</td>
 					<td>'.$Url.'</td>
-					<td>@'.$Link.'</td>
+					<td><a href="'.$LinkIToUrl.$Link.'">@'.$Link.'</a></td>
 				</tr>';
 			}
 
-			$Admin = '<table class="table table-dark">
+			$Admin = '<hr /><table class="table table-dark">
 				  <thead>
 					<tr>
 					  <th>#</th>
