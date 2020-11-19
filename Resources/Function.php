@@ -17,7 +17,7 @@
                 $code .= $tab[array_rand($tab)];
 			}
 			
-            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM urls WHERE Code='$code'");
+            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM urls WHERE ShortName='$code'");
             $count = $count->fetch_assoc();
             $count = $count['COUNT(*)'];
             if($count == 0) break;
