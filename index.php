@@ -83,8 +83,7 @@
 										</div>
 										<button type="submit" class="btn btn-primary btn-block">Generate</button>
 									</form><hr />
-
-									  
+									
                 					<p class="card-text">The generated link is: <a href="https://urlsshort.herokuapp.com/url/f456d" class="">https://urlsshort.herokuapp.com/url/f456d</a></p>
                 				</div>
                 			</div>
