@@ -18,9 +18,8 @@
 
 		$Name = CheckName($Connect);
 		$ShortName = GenerateCode($Connect);
-		echo $Name;
 
-		//$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
+		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
 
 		$Link = "https://".$_SERVER['SERVER_NAME'];
 		$Link = $Link.'/?url='.$ShortName;
@@ -40,7 +39,7 @@
 			</form>	';
 
 		//<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
-		//unset($_POST);
+		unset($_POST);
 	}
 
 	if(isset($_GET['url']) && !empty($_GET['url'])){
@@ -153,7 +152,6 @@
 			function Copy(){
 				var copyText = document.getElementById("copy-input");
 				copyText.select();
-				//copyText.setSelectionRange(0, 99999)
 				document.execCommand("copy");
 
 				var tooltip = document.getElementById("myTooltip");
@@ -164,10 +162,6 @@
 				var tooltip = document.getElementById("myTooltip");
 				tooltip.innerHTML = "Copy to clipboard";
 			}
-
-			/*jQuery(function () {
-				jQuery('[data-toggle="popover"]').popover()
-			});*/
 		</script>
 	</body>
 </html>
