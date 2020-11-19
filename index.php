@@ -179,7 +179,7 @@
 		<!-- Footer -->
 		<footer class="py-2 bg-dark navbar-fixed-bottom fixed-bottom">
 			<div class="container">
-				<p class="m-0 text-center text-white">Copyright <a href="https://urlsshort.herokuapp.com/?admin&all" class='linkFooter'>&copy;</a> <a href="<?php echo $Link_Footer;?>"><?php echo $Title_Footer;?></a> <?php echo date('Y');?></p>
+				<p class="m-0 text-center text-white">Copyright <a href="https://urlsshort.herokuapp.com/?admin&all" class='link-footer color-root'>&copy;</a> <a href="<?php echo $Link_Footer;?>"><?php echo $Title_Footer;?></a> <?php echo date('Y');?></p>
 			</div>
 		</footer>
 		
