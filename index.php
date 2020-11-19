@@ -45,6 +45,9 @@
 		$Link = $row['Link'];
 
 		print_r($url);
+		print_r($Connect);
+		print_r($result);
+		print_r($row);
 
 		$Count = $result->num_rows;
 
