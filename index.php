@@ -19,14 +19,14 @@
 		$Name = CheckName($Connect);
 		$ShortName = GenerateCode($Connect);
 
-		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
+		//$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
 
 		$Link = "https://".$_SERVER['SERVER_NAME'];
 		$Link = $Link.'/?url='.$ShortName;
 
 		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
 		$GeneratedLink = '<hr /><a class="btn btn-success btn-block btn-large" href="'.$Link.'" role="button">'.$Link.'</a>';
-		unset($_POST);
+		//unset($_POST);
 	}
 
 	if(isset($_GET['url']) && !empty($_GET['url'])){
