@@ -44,10 +44,10 @@
    		$row = $result->fetch_assoc();
 		$Link = $row['Link'];
 
-		print_r($url); echo "<br>";
-		print_r($Connect); echo "<br>";
-		print_r($result); echo "<br>";
-		print_r($row); echo "<br>";
+		print_r($url); echo "2<br>";
+		print_r($Connect); echo "2<br>";
+		print_r($result); echo "3<br>";
+		print_r($row); echo "4<br>";
 
 		$Count = $result->num_rows;
 
