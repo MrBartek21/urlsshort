@@ -26,7 +26,16 @@
 		$Link = $Link.'/?url='.$ShortName;
 
 		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
-		$GeneratedLink = '<hr /><a class="btn btn-success btn-block btn-large" href="'.$Link.'" role="button" id="copy-input">'.$Link.'</a>';
+		$GeneratedLink = '<hr />
+			<form>
+				<div class="input-group">
+					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
+					</span>
+				</div>
+			</form>	';
+
 		//unset($_POST);
 	}
 
@@ -109,18 +118,6 @@
 										</div>
 										<button type="submit" class="btn btn-primary btn-block">Generate</button>
 									</form>
-
-									<form>
-										<div class="input-group">
-											<input type="text" class="form-control" value="/path/to/foo/bar" placeholder="Some path" id="copy-input">
-											<span class="input-group-btn">
-												<button class="btn btn-default" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
-											</span>
-										</div>
-									</form>
-
-
-									
 
 									<?php
 										echo $GeneratedLink;
