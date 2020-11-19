@@ -11,6 +11,7 @@
 	require_once("Resources/Function.php");
 
 	$GeneratedLink = '';
+	$Error = '';
 	
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
@@ -24,6 +25,8 @@
 		$Link = $Link.'/?url='.$ShortName;
 
 		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
+		$GeneratedLink = '<hr /><a class="btn btn-primary" href="'.$Link.'" role="button">'.$Link.'</a>';
+		unset($_POST);
 	}
 
 	if(isset($_GET['url']) && !empty($_GET['url'])){
@@ -106,7 +109,10 @@
 										<button type="submit" class="btn btn-primary btn-block">Generate</button>
 									</form>
 
-                					<?php echo $GeneratedLink;?>
+									<?php
+										echo $GeneratedLink;
+										echo $Error;
+									?>
                 				</div>
                 			</div>
             			</div>
