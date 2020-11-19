@@ -150,19 +150,19 @@
 		<script src="Vendor/jquery/jquery.min.js"></script>
 		<script src="Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script>
-			function Copy() {
+			function Copy(){
 				var copyText = document.getElementById("copy-input");
 				copyText.select();
 				copyText.setSelectionRange(0, 99999)
 				document.execCommand("copy");
 				console.log(copyText.value);
-				//alert("Copied the text: " + copyText.value);
+				alert("Copied the text: " + copyText.value);
 
 				var tooltip = document.getElementById("myTooltip");
   				tooltip.innerHTML = "Copied: " + copyText.value;
 			}
 
-			function outFunc() {
+			function outFunc(){
 				var tooltip = document.getElementById("myTooltip");
 				tooltip.innerHTML = "Copy to clipboard";
 			}
