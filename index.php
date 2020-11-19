@@ -44,7 +44,7 @@
    		$row = $result->fetch_assoc();
 		$Link = $row['Link'];
 
-		print_r($row);
+		print_r($url);
 
 		$Count = $result->num_rows;
 
