@@ -151,6 +151,7 @@
 				copyText.select();
 				copyText.setSelectionRange(0, 99999)
 				document.execCommand("copy");
+				console.log(copyText);
 				//alert("Copied the text: " + copyText.value);
 			}
 
