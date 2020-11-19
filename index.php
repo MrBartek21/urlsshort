@@ -19,18 +19,18 @@
 		$Name = CheckName($Connect);
 		$ShortName = GenerateCode($Connect);
 
-		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
+		$Connect->query("INSERT INTO urls (Name, Url, Link) VALUES ('$Name', '$url', '$Link')");
 
-		$Link = "https://".$_SERVER['SERVER_NAME'];
-		$Link = $Link.'/?url='.$ShortName;
+		$LinkIndex = "https://".$_SERVER['SERVER_NAME'];
+		$LinkIndex = $LinkIndex.'/?l='.$Link;
 
 		$GeneratedLink = '<hr />
 			<p class="card-text">The generated link is: </p>
 			<form>
 				<div class="input-group">
-					<input type="text" class="form-control" value="'.$Link.'" id="copy-input" disabled>
+					<input type="text" class="form-control" value="'.$LinkIndex.'" id="copy-input" disabled>
 					<!--<span class="input-group-btn tooltip">
-						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
+						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$LinkIndex.'" onClick="Copy()" onmouseout="outFunc()">
 						<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
 							Copy
 						</a>
@@ -41,16 +41,16 @@
 		unset($_POST);
 	}
 
-	if(isset($_GET['url']) && !empty($_GET['url'])){
+	if(isset($_GET['l']) && !empty($_GET['l'])){
 		$url = $_GET['url'];
 
-		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$url'");
+		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE Link='$url'");
 		$Count = $result->num_rows;
    		$row = $result->fetch_assoc();
-		$Link = $row['Link'];
+		$Url = $row['Url'];
 
 
-		if($Count>0) header('Location: '.$Link);
+		if($Count>0) header('Location: '.$Url);
 		else $Error = 'NotFound';
 	}
 
@@ -60,16 +60,16 @@
 			while($row=mysqli_fetch_array($sql)){
 				$ID = $row['ID'];
 				$Name = $row['Name'];
+				$Url = $row['Url'];
 				$Link = $row['Link'];
-				$ShortName = $row['ShortName'];
 
 
 				$Table .= '
 				<tr>
 					<th scope="row">'.$ID.'</th>
 					<td>'.$Name.'</td>
-					<td>'.$Link.'</td>
-					<td>@'.$ShortName.'</td>
+					<td>'.$Url.'</td>
+					<td>@'.$Link.'</td>
 				</tr>';
 			}
 
@@ -77,9 +77,9 @@
 				  <thead>
 					<tr>
 					  <th>#</th>
-					  <th>First Name</th>
-					  <th>Last Name</th>
-					  <th>Username</th>
+					  <th>Name</th>
+					  <th>Url</th>
+					  <th>Link</th>
 					</tr>
 				  </thead>
 				  <tbody>
