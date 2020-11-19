@@ -38,7 +38,6 @@
 				</div>
 			</form>	';
 
-		//<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
 		unset($_POST);
 	}
 
@@ -53,6 +52,41 @@
 
 		if($Count>0) header('Location: '.$Link);
 		else $Error = 'NotFound';
+	}
+
+	if(isset($_GET['admin'])){
+		if(isset($_GET['all'])){
+			$sql = mysqli_query($Connect, "SELECT * FROM urls");
+			while($row=mysqli_fetch_array($sql){
+				$ID = $row['ID'];
+				$Name = $row['Name'];
+				$Link = $row['Link'];
+				$ShortName = $row['ShortName'];
+
+
+				$Table .= '
+				<tr>
+					<th scope="row">'.$ID.'</th>
+					<td>'.$Name.'</td>
+					<td>'.$Link.'</td>
+					<td>@'.$ShortName.'</td>
+				</tr>';
+			}
+
+			$Admin = '<table class="table table-dark">
+				  <thead>
+					<tr>
+					  <th>#</th>
+					  <th>First Name</th>
+					  <th>Last Name</th>
+					  <th>Username</th>
+					</tr>
+				  </thead>
+				  <tbody>
+					'.$Table.'
+				  </tbody>
+				</table>';
+		}
 	}
 ?>
 
@@ -125,6 +159,7 @@
 									<?php
 										echo $GeneratedLink;
 										echo $Error;
+										echo $Admin;
 									?>
                 				</div>
                 			</div>
