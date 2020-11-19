@@ -24,6 +24,10 @@ body{
     background-color: #494b5f;
 }
 
+.linkFooter{
+	text-decoration: none;
+}
+
 
 .bg-nav{background-color: #d73a31 !important;}
 .bg-card{background-color: #08708a;}
