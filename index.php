@@ -31,7 +31,7 @@
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
 					<span class="input-group-btn">
-						<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" id="copy-button" onClick="Copy()">Copy to Clipboard</a>
+						<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" onClick="Copy()">Copy to Clipboard</a>
 					</span>
 				</div>
 			</form>	';
@@ -146,6 +146,14 @@
 		<script src="Vendor/jquery/jquery.min.js"></script>
 		<script src="Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script>
+			function Copy() {
+				var copyText = document.getElementById("copy-input");
+				copyText.select();
+				copyText.setSelectionRange(0, 99999)
+				document.execCommand("copy");
+				//alert("Copied the text: " + copyText.value);
+			}
+
 			jQuery(function () {
 				jQuery('[data-toggle="popover"]').popover()
 			});
