@@ -32,7 +32,7 @@
 					<input type="text" class="form-control" value="'.$Link.'" id="copy-input" disabled>
 					<span class="input-group-btn tooltip">
 						<a tabindex="0" class="btn btn-lg btn-success" role="button" data-content="'.$Link.'" onClick="Copy()" onmouseout="outFunc()">
-							<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+						<!--<span class="tooltiptext" id="myTooltip">Copy to clipboard</span>-->
 							Copy
 						</a>
 					</span>
@@ -155,19 +155,6 @@
 				copyText.select();
 				//copyText.setSelectionRange(0, 99999)
 				document.execCommand("copy");
-				console.log(document.execCommand("copy"));
-
-				document.execCommand("copy", true, copyText.value);
-				document.execCommand("copy", true);
-				document.execCommand("copy");
-				console.log(document.execCommand("copy", true, copyText.value));
-				
-
-				console.log(document.queryCommandSupported('copy'));
-
-
-				console.log(copyText.value);
-				alert("Copied the text: " + copyText.value);
 
 				var tooltip = document.getElementById("myTooltip");
   				tooltip.innerHTML = "Copied: " + copyText.value;
