@@ -49,10 +49,10 @@
 		print_r($result); echo "3<br>";
 		print_r($row); echo "4<br>";
 
-		$Count = $result->num_rows;
+		//$Count = $result->num_rows;
 
-		if($Count>0) header('Location: '.$Link);
-		else $Error = 'NotFound';
+		//if($Count>0) header('Location: '.$Link);
+		//else $Error = 'NotFound';
 	}
 ?>
 
