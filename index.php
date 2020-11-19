@@ -9,8 +9,8 @@
 	require_once("Resources/Connect.php");
 	require_once("Resources/Settings.php");
 	
-	print_r($_POST);
-	//print_r($_GET);
+	//print_r($_POST);
+	print_r($_GET);
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
