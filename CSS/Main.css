@@ -1,8 +1,8 @@
 body{
 	padding-top: 70px;
 	padding-bottom: 70px;
-    background: #1e3d69;
-    color: #9a9a9a;
+    background: #032b2F;
+    color: #D0D3C5;
 	
 	font-family: 'Nunito', sans-serif !important;
 }
@@ -25,9 +25,9 @@ body{
 }
 
 
-.bg-nav{background-color: #7d4282 !important;}
+.bg-nav{background-color: #d73a31 !important;}
 
-.bg-card-yellow{background-color: #bc5299;}
+.bg-card-yellow{background-color: #08708a;}
 
 
 
