@@ -31,7 +31,7 @@
 		$Link = "https://".$_SERVER['SERVER_NAME'];
 		$Link = $Link.'/?url='.$ShortName;
 
-		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>'
+		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
 	}
 
 	if(isset($_GET['url']) && !empty($_GET['url'])){
