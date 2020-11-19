@@ -14,7 +14,8 @@
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
-		$Name = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
+		$Name = 'das';
 		
 		$sql = "INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')";
 		$Connect->query($sql);
