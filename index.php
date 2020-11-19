@@ -8,25 +8,15 @@
 	
 	require_once("Resources/Connect.php");
 	require_once("Resources/Settings.php");
+	require_once("Resources/Function.php");
 
 	$GeneratedLink = '';
-
-
-	function CheckName($Connect){
-		$ShortName = file_get_contents('http://names.drycodes.com/1?nameOptions=funnyWords&format=text');
-
-		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$ShortName'");
-		$Count = $result->num_rows;
-
-		if($Count==0) return $ShortName;
-		else CheckName($Connect);
-	}
 	
 	if(isset($_POST['urlinput']) && !empty($_POST['urlinput'])){
 		$url = $_POST['urlinput'];
 
-		$ShortName = CheckName($Connect);
-		$Name = 'das';
+		$Name = CheckName($Connect);
+		$ShortName = GenerateCode($Connect);
 
 		$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
 
@@ -40,19 +30,13 @@
 		$url = $_GET['url'];
 
 		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$url'");
-		
+		$Count = $result->num_rows;
    		$row = $result->fetch_assoc();
 		$Link = $row['Link'];
 
-		print_r($url); echo "2<br>";
-		print_r($Connect); echo "2<br>";
-		print_r($result); echo "3<br>";
-		print_r($row); echo "4<br>";
 
-		//$Count = $result->num_rows;
-
-		//if($Count>0) header('Location: '.$Link);
-		//else $Error = 'NotFound';
+		if($Count>0) header('Location: '.$Link);
+		else $Error = 'NotFound';
 	}
 ?>
 
