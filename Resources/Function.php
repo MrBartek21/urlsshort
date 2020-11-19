@@ -10,7 +10,6 @@
 	}
 
 	function GenerateCode($Connect){
-        //$Connect_BS->query("UPDATE livegames SET Code='ffff' WHERE Code!='ffff' and Finished=1");
         while(true){    
             $code = "";
             for($i=0;$i<8;$i++){
@@ -18,7 +17,7 @@
                 $code .= $tab[array_rand($tab)];
 			}
 			
-            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM livegames WHERE Code='$code'");
+            $count = mysqli_query($Connect, "SELECT COUNT(*) FROM urls WHERE Code='$code'");
             $count = $count->fetch_assoc();
             $count = $count['COUNT(*)'];
             if($count == 0) break;
