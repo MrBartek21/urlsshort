@@ -18,20 +18,19 @@
 
 		$Name = CheckName($Connect);
 		$ShortName = GenerateCode($Connect);
-		echo $ShortName;
+		echo $Name;
 
 		//$Connect->query("INSERT INTO urls (Name, Link, ShortName) VALUES ('$Name', '$url', '$ShortName')");
 
 		$Link = "https://".$_SERVER['SERVER_NAME'];
 		$Link = $Link.'/?url='.$ShortName;
 
-		$GeneratedLink = '<hr /><p class="card-text">The generated link is: <a href="'.$Link.'" class="">'.$Link.'</a></p>';
-		$GeneratedLink = '<hr />
-			<form>
+		$GeneratedLink = '<hr /><p class="card-text">The generated link is: </p>';
+		$GeneratedLink = '<form>
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
+						<button class="btn btn-success" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
 					</span>
 				</div>
 			</form>	';
