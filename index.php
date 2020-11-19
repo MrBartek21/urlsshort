@@ -57,7 +57,7 @@
 	if(isset($_GET['admin'])){
 		if(isset($_GET['all'])){
 			$sql = mysqli_query($Connect, "SELECT * FROM urls");
-			while($row=mysqli_fetch_array($sql){
+			while($row=mysqli_fetch_array($sql)){
 				$ID = $row['ID'];
 				$Name = $row['Name'];
 				$Link = $row['Link'];
