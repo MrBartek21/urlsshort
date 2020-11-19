@@ -4,7 +4,7 @@
 	$DB_Password = "a90bd23e";
 	$DB_Name = "heroku_de162b651ed5bf0";
 
-	$Connect = @new mysqli($Host, $DB_User, $DB_Password, $DB_Name_CG);
+	$Connect = @new mysqli($Host, $DB_User, $DB_Password, $DB_Name);
 	$Connect->set_charset("utf-8");
 	
 
