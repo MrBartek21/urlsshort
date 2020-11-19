@@ -44,7 +44,12 @@ handleDisconnect();
 app.use(bodyParser.urlencoded({extended: false}));
 
 //WebPages
-app.get('/', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
+app.get('/:test', (req, res) => {
+  console.log(req.params.test);
+  res.sendFile(path.join(__dirname+'/public/index.html'));
+});
+
+
 app.get('/index.html', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
 app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
 app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
