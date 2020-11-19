@@ -44,20 +44,15 @@ handleDisconnect();
 app.use(bodyParser.urlencoded({extended: false}));
 
 //WebPages
-app.get(':test', (req, res) => {
-  console.log(req.params.test);
-  res.sendFile(path.join(__dirname+'/public/index.html'));
-});
-
-
-//app.get('/index.html', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
-//app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
-//app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
+app.get('/', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
+app.get('/s', (req, res) => { res.sendFile(path.join(__dirname+'/public/index.html')); });
+app.get('/:folder/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.file)); });
+app.get('/:folder/:folder2/:file', (req, res) => { res.sendFile(path.join(__dirname+'/public/'+req.params.folder+'/'+req.params.folder2+'/'+req.params.file)); });
 
 app.post('/generate_url', (req, res) => {
   var url = req.body.urlinput;
   var name= "Test";
-  res.send('<script>location.replace("index.html")</script>');
+  res.send('<script>location.replace("s")</script>');
 
   request(NameGenerator, options, (error, res, body) => {
     if (error) { return  console.log(error) };
@@ -69,23 +64,9 @@ app.post('/generate_url', (req, res) => {
           console.log("1 record inserted, ID: " + result.insertId);
         });
     };
+  });
 });
 
-
-
-  /*connection.query('SELECT * FROM urls', function(err, rows, fields) {
-    if (err) {
-      console.log('error: ', err);
-      throw err;
-    }
-    response.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
-  });*/
-});
-
-
-app.get('/mysql', (req, res) => {
-	res.send("Hello");
-});
 
 app.listen(PORT, () => {
 	console.log("Listening on " + PORT);
