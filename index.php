@@ -40,9 +40,13 @@
 		$url = $_GET['url'];
 
 		$result = mysqli_query($Connect, "SELECT * FROM urls WHERE ShortName='$url'");
-		$Count = $result->num_rows;
+		
    		$row = $result->fetch_assoc();
 		$Link = $row['Link'];
+
+		print_r($row);
+
+		$Count = $result->num_rows;
 
 		if($Count>0) header('Location: '.$Link);
 		else $Error = 'NotFound';
