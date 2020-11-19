@@ -31,7 +31,7 @@
 				<div class="input-group">
 					<input type="text" class="form-control" value="'.$Link.'" placeholder="Generated link" id="copy-input" disabled>
 					<span class="input-group-btn">
-						<button class="btn btn-success" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
+						<a tabindex="0" class="btn btn-lg btn-success popover-dismiss" role="button" data-toggle="popover" data-trigger="focus" title="Copied" data-content="'.$Link.'" id="copy-button" onClick="Copy()">Copy to Clipboard</a>
 					</span>
 				</div>
 			</form>	';
@@ -146,36 +146,8 @@
 		<script src="Vendor/jquery/jquery.min.js"></script>
 		<script src="Vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 		<script>
-			$(document).ready(function() {
-				// Initialize the tooltip.
-				$('#copy-button').tooltip();
-
-				// When the copy button is clicked, select the value of the text box, attempt
-				// to execute the copy command, and trigger event to update tooltip message
-				// to indicate whether the text was successfully copied.
-				$('#copy-button').bind('click', function() {
-					var input = document.querySelector('#copy-input');
-					input.setSelectionRange(0, input.value.length + 1);
-					try {
-					var success = document.execCommand('copy');
-					if (success) {
-						$('#copy-button').trigger('copied', ['Copied!']);
-					} else {
-						$('#copy-button').trigger('copied', ['Copy with Ctrl-c']);
-					}
-					} catch (err) {
-					$('#copy-button').trigger('copied', ['Copy with Ctrl-c']);
-					}
-				});
-
-				// Handler for updating the tooltip message.
-				$('#copy-button').bind('copied', function(event, message) {
-					$(this).attr('title', message)
-						.tooltip('fixTitle')
-						.tooltip('show')
-						.attr('title', "Copy to Clipboard")
-						.tooltip('fixTitle');
-				});
+			jQuery(function () {
+				jQuery('[data-toggle="popover"]').popover()
 			});
 		</script>
 	</body>
